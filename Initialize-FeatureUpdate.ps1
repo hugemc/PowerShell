@@ -23,7 +23,7 @@ function Initialize-FeatureUpdate {
     if ($Pending -gt 0) {
         try {
             $MissingFU = @($FU | ForEach-Object { if ($_.ComplianceState -eq 0) { [WMI]$_.__PATH } }) 
-            # The following is the invoke of the CCM_SoftwareUpdatesManager.InstallUpdates with our found updates 
+            # Invoke CCM_SoftwareUpdatesManager.InstallUpdates 
             $InstallReturn = Invoke-WmiMethod -Class CCM_SoftwareUpdatesManager -Name InstallUpdates -ArgumentList (, $MissingFU) -Namespace root\ccm\clientsdk 
             Write-Verbose "$((Get-Date).ToShortTimeString()) - Initiated $Pending update for install"
         }
