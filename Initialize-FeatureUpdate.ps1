@@ -6,7 +6,7 @@ function Initialize-FeatureUpdate {
         Uses WMI calls to initiate updates pending in the CM client. 
     .EXAMPLE
          Install-FeatureUpdate -FUVer 2004 -Verbose
-       .PARAMETER FUVer
+    .PARAMETER FUVer
         Feature Update version. eg 2004
     #>
     [CmdletBinding()]
